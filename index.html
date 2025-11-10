@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vera - Your Intelligent Personal Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-glass">
+                <div class="header-content">
+                    <div class="logo" onclick="showLandingPage()" style="cursor: pointer;">Vera</div>
+                    <div>
+                        <button class="view-agents-btn" onclick="showChatPage()">Assistants</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="landing-page" id="landingPage">
+            <div class="content-wrapper">
+                <h1 class="main-title">Vera</h1>
+                <p class="subtitle">Your Intelligent Personal Assistant</p>
+                <p class="tagline">Save time. Stay focused. Let Vera handle the calls.</p>
+
+                <!-- About Section -->
+                <div class="about-section">
+                    <h2>About Vera</h2>
+                    <p>Vera is an intelligent personal assistant that makes phone calls on your behalf—saving you time, energy, and effort. Before each call, Vera quickly gathers key details through short questions to ensure it’s fully informed. It then handles the conversation using natural, human-like speech and provides you with a clean, structured transcription afterward—so you stay organized without ever needing to record or replay audio.</p>
+                </div>
+
+                <!-- What Vera Does -->
+                <div class="what-section">
+                    <h2>How Vera Helps</h2>
+                    <div class="what-content">
+                        <div class="what-item">
+                            <h3>Intelligent Preparation</h3>
+                            <p>Vera asks targeted questions to ensure its fully prepared before making the call, saving you from back-and-forth confusion.</p>
+                        </div>
+                        <div class="what-item">
+                            <h3>Automated Calling</h3>
+                            <p>Provide a number and purpose—Vera handles the conversation seamlessly, adapting its tone and responses naturally.</p>
+                        </div>
+                        <div class="what-item">
+                            <h3>Instant Transcriptions</h3>
+                            <p>After the call, receive an accurate, easy-to-read summary of everything discussed—no need to record or replay audio.</p>
+                        </div>
+                        <div class="what-item">
+                            <h3>Time & Energy Saver</h3>
+                            <p>Vera eliminates repetitive tasks and small talk, helping you reclaim time and mental energy for whats important.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="cta-section">
+                    <h2>Get Started</h2>
+                    <p>Vera is built to enhance your productivity, not replace human connection. Think of it as your reliable digital teammate—organized, thoughtful, and always ready to take on your routine calls.</p>
+                    <button class="cta-button" onclick="showNewAgentPage()">Create New Assistant</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- New Assistant Configuration Page -->
+        <main class="new-agent-page hidden" id="newAgentPage">
+            <button class="back-btn" onclick="showLandingPage()">← Back</button>
+
+            <div class="form-container">
+                <h2>Create New Assistant</h2>
+
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" id="userName" placeholder="Your name (who Vera is calling for)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Receiver Name</label>
+                        <input type="text" id="receiverName" placeholder="Who are you calling?">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phoneNumber" placeholder="Phone number to call">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Call Details</label>
+                        <textarea id="callDetails" placeholder="What should Vera say or ask during the call?" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <button class="submit-btn" onclick="createAgent()">Create Assistant</button>
+            </div>
+        </main>
+
+        <!-- Chat Interface Page -->
+        <main class="chat-page hidden" id="chatPage">
+            <div class="sidebar">
+                <button class="new-chat-btn" onclick="showNewAgentPage()">+ New Assistant</button>
+                <div class="call-logs" id="callLogs">
+                    <!-- Call logs will be populated here -->
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3 id="currentAgentName">Assistant Name</h3>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Chat messages will be populated here -->
+                </div>
+
+                <div class="chat-input-container" id="chatInputContainer">
+                    <input type="text" id="chatInput" placeholder="Ask about your call...">
+                    <button id="sendButton" onclick="sendMessage()">Send</button>
+                    <button id="callButton" class="call-button hidden" onclick="initiateCall()">Call</button>
+                </div>
+            </div>
+
+            <!-- Empty State Message -->
+            <div class="empty-state" id="emptyState">
+                <div class="empty-state-content">
+                    <h3>No Assistants Created Yet</h3>
+                    <p>Create your first assistant to get started with Vera.</p>
+                    <button class="cta-button" onclick="showNewAgentPage()">Create New Assistant</button>
+                </div>
+            </div>
+        </main>
+
+        
+
+        <!-- Footer -->
+        <footer>
+            <p class="footer-text">DUBHACKS 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
